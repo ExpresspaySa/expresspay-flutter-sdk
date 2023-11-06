@@ -1,3 +1,2 @@
-## 1.0.9
-
-Enhancements
+## 2.0.8
+Enhancements and bug fix for android app icon
