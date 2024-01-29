@@ -1,5 +1,6 @@
 package com.expresspay.fluttersdk.eventhandlers
 
+import android.util.Log
 import com.expresspay.sdk.core.ExpresspaySdk
 import com.expresspay.fluttersdk.helper.toMap
 import com.expresspay.sdk.ExpressPayHomeActivity_
@@ -55,6 +56,10 @@ class SaleEventHandler: EventChannel.StreamHandler {
     }
 
     fun sale(auth:Boolean, order:ExpresspaySaleOrder, payer:ExpresspayPayer, card:ExpresspayCard, saleOptions:ExpresspaySaleOptions?){
+
+        Log.i("EventChannel", "payer.email-1")
+        Log.i("EventChannel", payer.email)
+        Log.i("EventChannel", "payer.email-2")
         ExpresspaySdk.Adapter.SALE.execute(
             order = order,
             card = card,

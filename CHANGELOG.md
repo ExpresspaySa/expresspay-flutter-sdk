@@ -1,2 +1,3 @@
-## 2.1.0
-Enhancements and bug fix for android app icon
+## 2.1.1
+- Enhancements and bug fix.
+- Proguard rule fixes.
