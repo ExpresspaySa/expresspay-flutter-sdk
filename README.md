@@ -19,9 +19,10 @@ To properly set up the SDK, read [Wiki](https://github.com/ExpresspaySa/expressp
 
 ## Setup And Installation
 This Flutter plugin is based on iOS and Android native libraries.
-You need to add the `jitpack` repository support and `credentials` to the gradle to access the secured Android library. `Follow Below`
+You need to add the `jitpack` repository support to the gradle to access the secured Android library. `Follow Below`
 
 **Setup Android**
+
 Add to the root build.gradle in Android Project at Path:(${ProjectRoot}/android/build.gradle):
 
 ```groovy
@@ -31,13 +32,21 @@ allprojects {
         jcenter()
         maven {
             url 'https://jitpack.io'
-            credentials { username 'jp_tjnosefflebgig8l3i0q6cgf09' }
         }
     }
 }
 ```
 
+Add below rules to the project proguard configuration file located at path: ${ProjectRoot}/android/app/proguard-rules.pro)
+
+```groovy
+-keep class com.expresspay.sdk.model.**.**{ *; }
+```
+
+If the `${ProjectRoot}/android/app/proguard-rules.pro` file not existed and your project has **minify** enabled create the file and add the above rules in it.
+
 **Setup iOS**
+
 iOS does not required any setup just install flutter plugin where the `iOS framewework` is embedded within the plugin in iOS plaform directory.
 If you need to enable `Apple Pay` in your app it can be enable by following the instructions at [Link](https://github.com/ExpresspaySa/expresspay-flutter-sdk/wiki/Express-ApplePay-Payment)
 
@@ -47,8 +56,11 @@ In the `dependencies:` section of your `pubspec.yaml`, add the following lines:
 ```pubspec.yaml
 dependencies:
   intl: ^0.17.0
-  expresspay_sdk: any
+  expresspay_sdk: ^2.1.2
 ```
+
+Run in to terminal on project path `flutter pub upgrade expresspay_sdk`
+
 
 ## Initialize SDK
 ```dart
